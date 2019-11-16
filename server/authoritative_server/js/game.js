@@ -5,6 +5,7 @@ const config = {
   parent: 'phaser-example',
   width: 800,
   height: 600,
+  autoCenter: 2,
   physics: {
     default: 'arcade',
     arcade: {
