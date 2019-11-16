@@ -16,6 +16,7 @@ function preload() {
   this.load.image('ship', 'assets/spaceShips_001.png');
   this.load.image('otherPlayer', 'assets/enemyBlack5.png');
   this.load.image('star', 'assets/star_gold.png');
+  this.load.image('button', 'assets/button.png');
 }
 
 function create() {
@@ -38,6 +39,7 @@ function create() {
 
   this.socket.on('newPlayer', function (playerInfo) {
     displayPlayers(self, playerInfo, 'otherPlayer');
+
   });
 
   this.socket.on('disconnect', function (playerId) {
@@ -109,4 +111,8 @@ function displayPlayers(self, playerInfo, sprite) {
   else player.setTint(0xff0000);
   player.playerId = playerInfo.playerId;
   self.players.add(player);
+}
+
+function displayButton(self, sprite) {
+  self.add.sprite( 193, 71, sprite).setOrigin(0.5, 0.5).setDisplaySize(53, 40);
 }
