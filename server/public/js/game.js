@@ -16,7 +16,7 @@ function preload() {
   this.load.image('ship', 'assets/spaceShips_001.png');
   this.load.image('otherPlayer', 'assets/enemyBlack5.png');
   this.load.image('star', 'assets/star_gold.png');
-  this.load.image('button', 'assets/button.png');
+  this.load.image('button', 'assets/right.png');
 }
 
 function create() {
@@ -39,7 +39,7 @@ function create() {
 
   this.socket.on('newPlayer', function (playerInfo) {
     displayPlayers(self, playerInfo, 'otherPlayer');
-
+    displayButton(self, 'button')
   });
 
   this.socket.on('disconnect', function (playerId) {
