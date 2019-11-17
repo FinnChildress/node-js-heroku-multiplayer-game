@@ -17,7 +17,7 @@ var incrementVal = 0;
 function preload() {
   this.load.image('ship', 'assets/spaceShips_001.png');
   this.load.image('otherPlayer', 'assets/enemyBlack5.png');
-  this.load.image('star', 'assets/meteor.png');
+  this.load.image('star', 'assets/star_gold.png');
   this.load.image('button', 'assets/right.png');
 }
 
@@ -83,31 +83,6 @@ function create() {
   this.leftKeyPressed = false;
   this.rightKeyPressed = false;
   this.upKeyPressed = false;
-}
-
-function buttonpress(press) {
-  const left = this.leftKeyPressed;
-  const right = this.rightKeyPressed;
-  const up = this.upKeyPressed;
-
-  if (press==1) {
-    this.leftKeyPressed = true;
-  } else if (press==2) {
-    this.rightKeyPressed = true;
-  } else {
-    this.leftKeyPressed = false;
-    this.rightKeyPressed = false;
-  }
-
-  if (press==3) {
-    this.upKeyPressed = true;
-  } else {
-    this.upKeyPressed = false;
-  }
-
-  if (left !== this.leftKeyPressed || right !== this.rightKeyPressed || up !== this.upKeyPressed) {
-    this.socket.emit('playerInput', { left: this.leftKeyPressed , right: this.rightKeyPressed, up: this.upKeyPressed });
-  }
 }
 
 function update() {
