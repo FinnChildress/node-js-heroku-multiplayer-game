@@ -6,6 +6,7 @@ Event Registration: https://www.eventbrite.com/e/slo-hacks-go-tickets-7537470477
 
 Deployed on: http://nodejs.advancius.net/
 
+https://slohacksgo.devpost.com/
 
 
 Starter Code:
