@@ -85,6 +85,16 @@ function create() {
   this.upKeyPressed = false;
 }
 
+var right_click = false;
+function rightmouseDown() {
+    right_click = true;
+    console.log('Button being clicked');
+}
+function rightmouseUp() {
+    right_click = false;
+    console.log('Button not being clicked');
+}
+
 function update() {
   const left = this.leftKeyPressed;
   const right = this.rightKeyPressed;
@@ -92,7 +102,7 @@ function update() {
 
   if (this.cursors.left.isDown) {
     this.leftKeyPressed = true;
-  } else if (this.cursors.right.isDown) {
+  } else if (this.cursors.right.isDown || right_click == true) {
     this.rightKeyPressed = true;
   } else {
     this.leftKeyPressed = false;
