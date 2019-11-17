@@ -80,6 +80,31 @@ function create() {
   this.upKeyPressed = false;
 }
 
+function buttonpress(press) {
+  const left = this.leftKeyPressed;
+  const right = this.rightKeyPressed;
+  const up = this.upKeyPressed;
+
+  if (press==1) {
+    this.leftKeyPressed = true;
+  } else if (press==2) {
+    this.rightKeyPressed = true;
+  } else {
+    this.leftKeyPressed = false;
+    this.rightKeyPressed = false;
+  }
+
+  if (press==3) {
+    this.upKeyPressed = true;
+  } else {
+    this.upKeyPressed = false;
+  }
+
+  if (left !== this.leftKeyPressed || right !== this.rightKeyPressed || up !== this.upKeyPressed) {
+    this.socket.emit('playerInput', { left: this.leftKeyPressed , right: this.rightKeyPressed, up: this.upKeyPressed });
+  }
+}
+
 function update() {
   const left = this.leftKeyPressed;
   const right = this.rightKeyPressed;
@@ -111,8 +136,4 @@ function displayPlayers(self, playerInfo, sprite) {
   else player.setTint(0xff0000);
   player.playerId = playerInfo.playerId;
   self.players.add(player);
-}
-
-function displayButton(self, sprite) {
-  self.add.sprite(50, 50, sprite).setOrigin(0.5, 0.5).setDisplaySize(53, 40);
 }
