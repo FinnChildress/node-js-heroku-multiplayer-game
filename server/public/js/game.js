@@ -114,5 +114,5 @@ function displayPlayers(self, playerInfo, sprite) {
 }
 
 function displayButton(self, sprite) {
-  self.add.sprite(900, 700, sprite).setOrigin(0.5, 0.5).setDisplaySize(53, 40);
+  self.add.sprite(50, 50, sprite).setOrigin(0.5, 0.5).setDisplaySize(53, 40);
 }
