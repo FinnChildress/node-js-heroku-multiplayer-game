@@ -12,10 +12,12 @@ var config = {
 
 var game = new Phaser.Game(config);
 
+var incrementVal = 0;
+
 function preload() {
   this.load.image('ship', 'assets/spaceShips_001.png');
   this.load.image('otherPlayer', 'assets/enemyBlack5.png');
-  this.load.image('star', 'assets/star_gold.png');
+  this.load.image('star', 'assets/meteor.png');
   this.load.image('button', 'assets/right.png');
 }
 
@@ -26,6 +28,9 @@ function create() {
 
   this.blueScoreText = this.add.text(16, 16, '', { fontSize: '32px', fill: '#0000FF' });
   this.redScoreText = this.add.text(584, 16, '', { fontSize: '32px', fill: '#FF0000' });
+
+  this.incrementVal += 0.01;
+
 
   this.socket.on('currentPlayers', function (players) {
     Object.keys(players).forEach(function (id) {
@@ -70,7 +75,7 @@ function create() {
     if (!self.star) {
       self.star = self.add.image(starLocation.x, starLocation.y, 'star');
     } else {
-      self.star.setPosition(starLocation.x, starLocation.y);
+      self.star.setPosition(starLocation.x + incrementVal, starLocation.y);
     }
   });
 
