@@ -83,15 +83,15 @@ function create() {
   this.leftKeyPressed = false;
   this.rightKeyPressed = false;
   this.upKeyPressed = false;
+  this.right_click = false;
 }
 
-var right_click = false;
 function rightmouseDown() {
-    right_click = true;
+    this.right_click = true;
     console.log('Button being clicked');
 }
 function rightmouseUp() {
-    right_click = false;
+    this.right_click = false;
     console.log('Button not being clicked');
 }
 
@@ -102,7 +102,7 @@ function update() {
 
   if (this.cursors.left.isDown) {
     this.leftKeyPressed = true;
-  } else if (this.cursors.right.isDown || right_click == true) {
+  } else if (this.cursors.right.isDown || this.right_click == true) {
     this.rightKeyPressed = true;
   } else {
     this.leftKeyPressed = false;
